@@ -110,6 +110,8 @@ z &= d_1
 \end{aligned}
 $$
 
+<img width="338" alt="fk" src="https://github.com/user-attachments/assets/ec5ba473-a539-46fe-8d2c-61e4c632b5ac">
+
 
 # Inverse Kinematics in 3D
 
@@ -148,3 +150,5 @@ Inverse kinematics involves finding the joint angles θ1, θ2, and θ3 given the
    The angle θ3 can be determined as:
 
    $θ3 = \arctan2(z_w, \sqrt{x_w^2 + y_w^2}) - θ2$
+
+<img width="329" alt="ik" src="https://github.com/user-attachments/assets/4951e030-87e1-4a77-9c72-b9669bd54f0c">
