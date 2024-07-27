@@ -6,25 +6,25 @@ Forward kinematics in 3D involves determining the position \((x, y, z)\) and ori
 
 ## Assumptions
 - The robot has three rotational joints.
-- The links are defined by lengths \(L_1\), \(L_2\), and \(L_3\).
-- The joint angles are \(\theta_1\), \(\theta_2\), and \(\theta_3\).
+- The links are defined by lengths L1, L2, and L3.
+- The joint angles are θ1, θ2, and θ3.
 
 ## Denavit-Hartenberg (DH) Parameters
 The DH convention simplifies the process of modeling robotic arms by assigning a coordinate frame to each joint and defining a set of four parameters that describe the relative positions of these frames. The four DH parameters are:
 
-**\(a_i\) (Link Length):**
+**𝑎𝑖 (Link Length):**
 - The distance between the \(z_{i-1}\) and \(z_i\) axes measured along the \(x_i\) axis.
 - This parameter represents the length of the common normal between the two successive joint axes.
 
-**\(\alpha_i\) (Link Twist):**
+**αi (Link Twist):**
 - The angle between the \(z_{i-1}\) and \(z_i\) axes measured around the \(x_i\) axis.
 - This parameter represents the twist angle between the two successive joint axes.
 
-**\(d_i\) (Link Offset):**
+**di (Link Offset):**
 - The distance between the \(x_{i-1}\) and \(x_i\) axes measured along the \(z_i\) axis.
 - This parameter represents the offset along the previous \(z\)-axis to the common normal.
 
-**\(\theta_i\) (Joint Angle):**
+**θi (Joint Angle):**
 - The angle between the \(x_{i-1}\) and \(x_i\) axes measured around the \(z_i\) axis.
 - This parameter represents the rotation around the previous \(z\)-axis to align the \(x\)-axes.
 
