@@ -114,9 +114,7 @@ Inverse kinematics involves finding the joint angles θ1, θ2, and θ3 given the
 
    The first joint angle θ1 can be found using:
 
-   $$
-   θ1 = \arctan2(y, x)
-   $$
+   $θ1 = \arctan2(y, x)$
 
 2. **Calculate the Position of the Wrist Center:**
 
