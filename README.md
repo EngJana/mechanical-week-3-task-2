@@ -33,25 +33,25 @@ Let's define the DH parameters for a 3-DoF robotic arm, which typically has thre
 
 **Joint 1 (Base to Link 1)** 
 - a1=0: Since the base is fixed and there is no offset along the \(x_1\) axis.
-- \(\alpha_1=0\): There is no twist angle between the base and the first joint.
+- 𝛼1=0: There is no twist angle between the base and the first joint.
 - d1: This is the distance from the base to the first joint along the \(z_1\) axis, which is usually a fixed length.
 - θ1: This is the rotation around the \(z_1\) axis, which is the first joint angle.
 
 **Joint 2 (Link 1 to Link 2)**
 - a2=L1: The length of the first link along the \(x_2\) axis.
-- \(\alpha_2=0\): There is no twist angle between the first and second joints.
+- 𝛼2=0: There is no twist angle between the first and second joints.
 - d2=0: There is no offset along the \(z_2\) axis for a revolute joint.
 - θ2: This is the rotation around the \(z_2\) axis, which is the second joint angle.
 
 **Joint 3 (Link 2 to Link 3)**
 - a3=L2: The length of the second link along the \(x_3\) axis.
-- \(\alpha_3=0\): There is no twist angle between the second and third joints.
+- 𝛼3=0: There is no twist angle between the second and third joints.
 - d3=0: There is no offset along the \(z_3\) axis for a revolute joint.
 - θ3: This is the rotation around the \(z_3\) axis, which is the third joint angle.
 
 For a 3-DoF robot, the DH parameters might look like:
 
-| Joint | ai | \(\alpha_i\) | di | θi |
+| Joint | ai | 	𝛼i | di | θi |
 |-------|--------|--------------|--------|-------------|
 | 1     | 0      | 0            | d1 | θ1 |
 | 2     | L1 | 0            | 0      | θ2 |
