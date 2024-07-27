@@ -1,4 +1,10 @@
 # mechanical-week-3-task-2
+smart methods internship week 3
+
+# 3-DoF Robotic Arm Kinematics
+
+A mathematical model of a three-degree-of-freedom robotic arm, focusing on both forward and inverse kinematics. 
+Detailed transformation matrices and equations to understand and compute the arm's movements. 
 
 # Forward Kinematics in 3D
 
