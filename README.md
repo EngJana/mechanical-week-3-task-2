@@ -110,7 +110,7 @@ Inverse kinematics involves finding the joint angles θ1, θ2, and θ3 given the
 
 ## Steps to Solve Inverse Kinematics
 
-1. **Calculate \(\theta_1\):**
+1. **Calculate θ1:**
 
    The first joint angle θ1 can be found using:
 
