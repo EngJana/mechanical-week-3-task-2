@@ -34,35 +34,35 @@ Let's define the DH parameters for a 3-DoF robotic arm, which typically has thre
 **Joint 1 (Base to Link 1)** 
 - \(a_1=0\): Since the base is fixed and there is no offset along the \(x_1\) axis.
 - \(\alpha_1=0\): There is no twist angle between the base and the first joint.
-- \(d_1\): This is the distance from the base to the first joint along the \(z_1\) axis, which is usually a fixed length.
-- \(\theta_1\): This is the rotation around the \(z_1\) axis, which is the first joint angle.
+- d1: This is the distance from the base to the first joint along the \(z_1\) axis, which is usually a fixed length.
+- θ1: This is the rotation around the \(z_1\) axis, which is the first joint angle.
 
 **Joint 2 (Link 1 to Link 2)**
 - \(a_2=L_1\): The length of the first link along the \(x_2\) axis.
 - \(\alpha_2=0\): There is no twist angle between the first and second joints.
-- \(d_2=0\): There is no offset along the \(z_2\) axis for a revolute joint.
-- \(\theta_2\): This is the rotation around the \(z_2\) axis, which is the second joint angle.
+- d2=0: There is no offset along the \(z_2\) axis for a revolute joint.
+- θ2: This is the rotation around the \(z_2\) axis, which is the second joint angle.
 
 **Joint 3 (Link 2 to Link 3)**
 - \(a_3=L_2\): The length of the second link along the \(x_3\) axis.
 - \(\alpha_3=0\): There is no twist angle between the second and third joints.
-- \(d_3=0\): There is no offset along the \(z_3\) axis for a revolute joint.
-- \(\theta_3\): This is the rotation around the \(z_3\) axis, which is the third joint angle.
+- d3=0: There is no offset along the \(z_3\) axis for a revolute joint.
+- θ3: This is the rotation around the \(z_3\) axis, which is the third joint angle.
 
 For a 3-DoF robot, the DH parameters might look like:
 
 | Joint | \(a_i\) | \(\alpha_i\) | \(d_i\) | \(\theta_i\) |
 |-------|--------|--------------|--------|-------------|
-| 1     | 0      | 0            | \(d_1\) | \(\theta_1\) |
-| 2     | \(L_1\) | 0            | 0      | \(\theta_2\) |
-| 3     | \(L_2\) | 0            | 0      | \(\theta_3\) |
+| 1     | 0      | 0            | d1 | θ1 |
+| 2     | L1 | 0            | 0      | θ2 |
+| 3     | L2 | 0            | 0      | θ3 |
 
 Using these parameters, the transformation matrices for each joint are:
 
 \[ 
 T_1 = \begin{bmatrix}
-\cos(\theta_1) & -\sin(\theta_1) & 0 & 0 \\
-\sin(\theta_1) & \cos(\theta_1) & 0 & 0 \\
+\cos(θ1) & -\sin(θ1) & 0 & 0 \\
+\sin(θ1) & \cos(θ1) & 0 & 0 \\
 0 & 0 & 1 & d_1 \\
 0 & 0 & 0 & 1
 \end{bmatrix}
@@ -70,8 +70,8 @@ T_1 = \begin{bmatrix}
 
 \[ 
 T_2 = \begin{bmatrix}
-\cos(\theta_2) & -\sin(\theta_2) & 0 & L_1 \cos(\theta_2) \\
-\sin(\theta_2) & \cos(\theta_2) & 0 & L_1 \sin(\theta_2) \\
+\cos(θ2) & -\sin(θ2) & 0 & L_1 \cos(θ2) \\
+\sin(θ2) & \cos(θ2) & 0 & L_1 \sin(θ2) \\
 0 & 0 & 1 & 0 \\
 0 & 0 & 0 & 1
 \end{bmatrix}
@@ -79,8 +79,8 @@ T_2 = \begin{bmatrix}
 
 \[ 
 T_3 = \begin{bmatrix}
-\cos(\theta_3) & -\sin(\theta_3) & 0 & L_2 \cos(\theta_3) \\
-\sin(\theta_3) & \cos(\theta_3) & 0 & L_2 \sin(\theta_3) \\
+\cos(θ3) & -\sin(θ3) & 0 & L_2 \cos(θ3) \\
+\sin(θ3) & \cos(θ3) & 0 & L_2 \sin(θ3) \\
 0 & 0 & 1 & 0 \\
 0 & 0 & 0 & 1
 \end{bmatrix}
@@ -91,31 +91,31 @@ T_3 = \begin{bmatrix}
 The composite transformation matrix \(T\) from the base to the end-effector is:
 
 \[ 
-T = T_1 \cdot T_2 \cdot T_3
+T = T1 \cdot T2 \cdot T3
 \]
 
 To find the position \((x, y, z)\) of the end-effector, we extract the translation components from the final transformation matrix:
 
 \[ 
 \begin{aligned}
-x &= L_1 \cos(\theta_1) + L_2 \cos(\theta_1 + \theta_2) + L_3 \cos(\theta_1 + \theta_2 + \theta_3) \\
-y &= L_1 \sin(\theta_1) + L_2 \sin(\theta_1 + \theta_2) + L_3 \sin(\theta_1 + \theta_2 + \theta_3) \\
+x &= L1 \cos(θ1) + L2 \cos(θ1 + θ2) + L3 \cos(θ1 + θ2 + θ3) \\
+y &= L1 \sin(θ1) + L2 \sin(θ1 + θ2) + L3 \sin(θ1 + θ2 + θ3) \\
 z &= d_1
 \end{aligned}
 \]
 
 # Inverse Kinematics in 3D
 
-Inverse kinematics involves finding the joint angles \(\theta_1\), \(\theta_2\), and \(\theta_3\) given the position \((x, y, z)\) of the end-effector.
+Inverse kinematics involves finding the joint angles θ1, θ2, and θ3 given the position \((x, y, z)\) of the end-effector.
 
 ## Steps to Solve Inverse Kinematics
 
 1. **Calculate \(\theta_1\):**
 
-   The first joint angle \(\theta_1\) can be found using:
+   The first joint angle θ1 can be found using:
 
    \[
-   \theta_1 = \arctan2(y, x)
+   θ1 = \arctan2(y, x)
    \]
 
 2. **Calculate the Position of the Wrist Center:**
