@@ -110,29 +110,6 @@ z &= d_1
 \end{aligned}
 $$
 
-# 3-DoF Robotic Arm Kinematics
-
-## Forward Kinematics
-
-The diagram below illustrates the forward kinematics process, where we determine the position of the end-effector given specific joint angles:
-
-<div style="text-align: center;">
-  <h2>Forward Kinematics</h2>
-  <svg width="400" height="300">
-    <line x1="200" y1="200" x2="200" y2="100" style="stroke:black;stroke-width:2" />
-    <line x1="200" y1="100" x2="300" y2="100" style="stroke:black;stroke-width:2" />
-    <line x1="300" y1="100" x2="350" y2="50" style="stroke:black;stroke-width:2" />
-    <circle cx="200" cy="200" r="4" fill="red" />
-    <circle cx="200" cy="100" r="4" fill="red" />
-    <circle cx="300" cy="100" r="4" fill="red" />
-    <circle cx="350" cy="50" r="4" fill="red" />
-    <text x="180" y="220" font-family="Verdana" font-size="12">Base</text>
-    <text x="180" y="95" font-family="Verdana" font-size="12">Joint 1</text>
-    <text x="310" y="95" font-family="Verdana" font-size="12">Joint 2</text>
-    <text x="360" y="50" font-family="Verdana" font-size="12">End-Effector</text>
-  </svg>
-</div>
-
 
 # Inverse Kinematics in 3D
 
