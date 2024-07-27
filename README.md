@@ -6,7 +6,7 @@ Forward kinematics in 3D involves determining the position \((x, y, z)\) and ori
 
 ## Assumptions
 - The robot has three rotational joints.
-- The links are defined by lengths \(L_1\), \(L_2\), and \(L_3\).
+- The links are defined by lengths L1, L2, and L3.
 - The joint angles are \(\theta_1\), \(\theta_2\), and \(\theta_3\).
 
 ## Denavit-Hartenberg (DH) Parameters
