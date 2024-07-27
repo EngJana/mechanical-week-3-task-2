@@ -120,38 +120,24 @@ Inverse kinematics involves finding the joint angles θ1, θ2, and θ3 given the
 
    The wrist center is the position where the third link starts. This can be found as:
 
-   $$
-   x_w = x - L_3 \cos(θ1 + θ2 + θ3)
-   $$
+   $x_w = x - L_3 \cos(θ1 + θ2 + θ3)$
    
-   $$
-   y_w = y - L_3 \sin(θ1 + θ2 + θ3)
-   $$
+   $y_w = y - L_3 \sin(θ1 + θ2 + θ3)$
    
-   $$
-   z_w = z - d_1
-   $$
+   $z_w = z - d_1$
 
 4. **Calculate θ2 and θ3:**
 
    Using the wrist center coordinates, we can form a triangle with sides L1, L2, and the distance from the base to the wrist center \((r)\):
 
-   $$
-   r = \sqrt{x_w^2 + y_w^2}
-   $$
+   $r = \sqrt{x_w^2 + y_w^2}$
 
    The angle θ2 can be found using the law of cosines:
 
-   $$
-   \cos(θ2) = \frac{r^2 + L1^2 - L2^2}{2 L1 r}
-   $$
+   $\cos(θ2) = \frac{r^2 + L1^2 - L2^2}{2 L1 r}$
    
-   $$
-   θ2 = \arccos\left(\frac{r^2 + L1^2 - L2^2}{2 L1 r}\right)
-   $$
+   $θ2 = \arccos\left(\frac{r^2 + L1^2 - L2^2}{2 L1 r}\right)$
 
    The angle θ3 can be determined as:
 
-   $$
-   θ3 = \arctan2(z_w, \sqrt{x_w^2 + y_w^2}) - θ2
-   $$
+   $θ3 = \arctan2(z_w, \sqrt{x_w^2 + y_w^2}) - θ2$
