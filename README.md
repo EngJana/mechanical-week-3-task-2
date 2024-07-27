@@ -59,14 +59,14 @@ For a 3-DoF robot, the DH parameters might look like:
 
 Using these parameters, the transformation matrices for each joint are:
 
-\[ 
+$$ 
 T_1 = \begin{bmatrix}
 \cos(θ1) & -\sin(θ1) & 0 & 0 \\
 \sin(θ1) & \cos(θ1) & 0 & 0 \\
 0 & 0 & 1 & d_1 \\
 0 & 0 & 0 & 1
 \end{bmatrix}
-\]
+$$
 
 \[ 
 T_2 = \begin{bmatrix}
