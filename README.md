@@ -68,41 +68,41 @@ T_1 = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-\[ 
+$$ 
 T_2 = \begin{bmatrix}
 \cos(θ2) & -\sin(θ2) & 0 & L_1 \cos(θ2) \\
 \sin(θ2) & \cos(θ2) & 0 & L_1 \sin(θ2) \\
 0 & 0 & 1 & 0 \\
 0 & 0 & 0 & 1
 \end{bmatrix}
-\]
+$$
 
-\[ 
+$$ 
 T_3 = \begin{bmatrix}
 \cos(θ3) & -\sin(θ3) & 0 & L_2 \cos(θ3) \\
 \sin(θ3) & \cos(θ3) & 0 & L_2 \sin(θ3) \\
 0 & 0 & 1 & 0 \\
 0 & 0 & 0 & 1
 \end{bmatrix}
-\]
+$$
 
 ## Composite Transformation
 
 The composite transformation matrix \(T\) from the base to the end-effector is:
 
-\[ 
+$$ 
 T = T1 \cdot T2 \cdot T3
-\]
+$$
 
 To find the position \((x, y, z)\) of the end-effector, we extract the translation components from the final transformation matrix:
 
-\[ 
+$$ 
 \begin{aligned}
 x &= L1 \cos(θ1) + L2 \cos(θ1 + θ2) + L3 \cos(θ1 + θ2 + θ3) \\
 y &= L1 \sin(θ1) + L2 \sin(θ1 + θ2) + L3 \sin(θ1 + θ2 + θ3) \\
 z &= d_1
 \end{aligned}
-\]
+$$
 
 # Inverse Kinematics in 3D
 
@@ -114,42 +114,46 @@ Inverse kinematics involves finding the joint angles θ1, θ2, and θ3 given the
 
    The first joint angle θ1 can be found using:
 
-   \[
+   $$
    θ1 = \arctan2(y, x)
-   \]
+   $$
 
 2. **Calculate the Position of the Wrist Center:**
 
    The wrist center is the position where the third link starts. This can be found as:
 
-   \[
+   $$
    x_w = x - L_3 \cos(θ1 + θ2 + θ3)
-   \]
-   \[
+   $$
+   
+   $$
    y_w = y - L_3 \sin(θ1 + θ2 + θ3)
-   \]
-   \[
+   $$
+   
+   $$
    z_w = z - d_1
-   \]
+   $$
 
-3. **Calculate θ2 and θ3:**
+4. **Calculate θ2 and θ3:**
 
    Using the wrist center coordinates, we can form a triangle with sides L1, L2, and the distance from the base to the wrist center \((r)\):
 
-   \[
+   $$
    r = \sqrt{x_w^2 + y_w^2}
-   \]
+   $$
 
    The angle θ2 can be found using the law of cosines:
 
-   \[
+   $$
    \cos(θ2) = \frac{r^2 + L1^2 - L2^2}{2 L1 r}
-   \]
-   \[
+   $$
+   
+   $$
    θ2 = \arccos\left(\frac{r^2 + L1^2 - L2^2}{2 L1 r}\right)
-   \]
+   $$
 
    The angle θ3 can be determined as:
 
-   \[
+   $$
    θ3 = \arctan2(z_w, \sqrt{x_w^2 + y_w^2}) - θ2
+   $$
